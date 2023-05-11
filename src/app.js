@@ -14,10 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(controllers);
 
-app.use( express.static(path.join(__dirname, 'public/images')));
-
 sequelize.sync();
 
-app.listen(3000, () => {
-    console.log('Server listening on port 3000')    
-})
+app.listen(process.env.PORT)
