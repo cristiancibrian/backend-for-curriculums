@@ -16,7 +16,7 @@ app.use(controllers);
 
 app.use( express.static(path.join(__dirname, 'public/images')));
 
-// sequelize.sync({ force: true });
+sequelize.sync();
 
 app.listen(3000, () => {
     console.log('Server listening on port 3000')    
