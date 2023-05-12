@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const sequelize = require('../db/sequelize');
 const multer = require('multer');
 const path = require('path');
 const cloudinary = require('cloudinary').v2;
@@ -15,9 +14,6 @@ cloudinary.config({
 
 const router = Router();
 
-
-
-// Subir curriculum con foto
 const storage = multer.diskStorage({
     destination: path.join(__dirname, '../temp'),
     filename: (req, file, cb) => {
