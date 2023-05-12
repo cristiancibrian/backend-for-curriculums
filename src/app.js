@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(controllers);
 
-sequelize.sync({ force: true });
+sequelize.sync();
 
 app.listen(process.env.PORT || 3000, () => {
     console.log('Server en el puerto', process.env.PORT || 3000)
