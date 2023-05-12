@@ -5,7 +5,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const sequelize = require('./db/sequelize');
-const Curriculum = require('./models/curriculums');
+const Informacion_Personal = require('./models/Informacion_Personal');
+const Experiencia_Laboral = require('./models/Experiencia_Laboral');
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(controllers);
 
-sequelize.sync();
+sequelize.sync({ force: true });
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Server en el puerto', process.env.PORT || 3000)
+})

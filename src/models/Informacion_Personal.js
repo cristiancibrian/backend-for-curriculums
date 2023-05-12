@@ -1,7 +1,8 @@
 const sequelize = require('../db/sequelize');
 const { DataTypes } = require('sequelize');
+const Experiencia_Laboral = require('./Experiencia_Laboral');
 
-const Curriculum = sequelize.define('Curriculum', {
+const Informacion_Personal = sequelize.define('Informacion_Personal', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -28,19 +29,11 @@ const Curriculum = sequelize.define('Curriculum', {
     telefono: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    lugar_trabajo: {
-        type: DataTypes.STRING
-    },
-    puesto: {
-        type: DataTypes.STRING
-    },
-    sueldo: {
-        type: DataTypes.STRING
-    },
-    descripcion_actividades: {
-        type: DataTypes.STRING
-    },
+    }
 })
 
-module.exports = Curriculum;
+Informacion_Personal.hasMany(Experiencia_Laboral, {
+    foreignKey: 'informacion_personal_id'
+});
+
+module.exports = Informacion_Personal;
